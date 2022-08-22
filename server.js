@@ -13,10 +13,10 @@ console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 
 const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     user: "********@gmail.com",
-    pass: ""
+    pass: "",
   },
 });
 
@@ -49,4 +49,8 @@ router.post("/contact", (req, res) => {
       res.json({ code: 200, status: "Message Sent" });
     }
   });
+});
+
+router.get("/projects", (req, res) => {
+  res.status(200).send("afjaknf");
 });

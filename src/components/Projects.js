@@ -1,46 +1,64 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+import projImg6 from "../assets/img/project-img2.png";
+import projImg1 from "../assets/img/fitness.png";
+import projImg7 from "../assets/img/project-img3.png";
+import projImg2 from "../assets/img/linked.png";
+import projImg3 from "../assets/img/delivery.png";
+import projImg4 from "../assets/img/traveladvice.png";
+import projImg5 from "../assets/img/booking.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-
+import { useEffect } from "react";
+import axios from "axios";
 export const Projects = () => {
+  const fetch = async () => {
+    const data = await axios
+      .get("http://localhost:3000/projects")
+      .then((response) => console.log(response.data));
+  };
+  useEffect(() => {
+    fetch();
+  }, []);
   const projects = [
     {
       title: "Business Startup",
-      description: "Design & Development",
+      description: "Developed a web app for a gym center",
       imgUrl: projImg1,
+      url: "https://github.com/EdwardDuong/Fitness",
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Social Web-page",
+      description: "Linked-in clone page with few useable functions",
       imgUrl: projImg2,
+      url: "https://github.com/EdwardDuong/LinkedIn-Clone",
     },
     {
       title: "Business Startup",
-      description: "Design & Development",
+      description: "A web page for a pizza store",
       imgUrl: projImg3,
+      url: "https://github.com/EdwardDuong/Delivery-app",
+    },
+    {
+      title: "Tools web",
+      description: "Recommendation tools for travel based on picked location",
+      imgUrl: projImg4,
+      url: "https://github.com/EdwardDuong/TravelAdvisor",
     },
     {
       title: "Business Startup",
       description: "Design & Development",
-      imgUrl: projImg1,
+      imgUrl: projImg5,
+      url: "abc",
     },
     {
       title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      description: "Developed a web app based on Booking.com",
+      imgUrl: projImg6,
+      url: "abc",
     },
   ];
-
   return (
     <section className="projects" id="projects">
       <Container>
@@ -55,11 +73,8 @@ export const Projects = () => {
                 >
                   <h2>Projects</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    All projects that I have done in my uni journey and my
+                    self-learning
                   </p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
                     <Nav
@@ -92,20 +107,14 @@ export const Projects = () => {
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
+                          All projects that I have done in my uni journey and my
+                          self-learning
                         </p>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
                         <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Cumque quam, quod neque provident velit, rem
-                          explicabo excepturi id illo molestiae blanditiis,
-                          eligendi dicta officiis asperiores delectus quasi
-                          inventore debitis quo.
+                          All projects that I have done in my uni journey and my
+                          self-learning
                         </p>
                       </Tab.Pane>
                     </Tab.Content>
@@ -116,7 +125,7 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img className="background-image-right" src={colorSharp2} alt="" />
     </section>
   );
 };
